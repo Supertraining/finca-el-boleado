@@ -2,3 +2,11 @@
   box-shadow: inset 2px 2px 5px salmon, inset -2px -2px 5px salmon !important;
   transition: 0.5s;
 }
+.Div__cart {
+  width: fit-content;
+  height: fit-content;
+  padding: 12px;
+}
+.cart {
+  padding: 8px;
+}

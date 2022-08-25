@@ -1,4 +1,5 @@
 import './App.css';
+import ItemListContainer from './components/ItemListContainer';
 import { NavBar } from './components/NavBar';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
       <header className='row bg-dark d-flex justify-content-around'>
         <NavBar />
       </header>
-      <h1 className='text-center mt-4 shadow text-info'>Bienvenido a la tienda de Finca El Boleado!!</h1>
+      <ItemListContainer name='Finca El Boleado'/>
     </div>
   );
 }

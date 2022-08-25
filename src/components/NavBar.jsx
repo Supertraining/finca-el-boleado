@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../img/Logo_Boleado2.jpg'
+import CartWidget from './CartWidget'
 
 
 export const NavBar = () => {
@@ -11,8 +12,9 @@ export const NavBar = () => {
         <ul className='list-unstyled w-auto d-flex'>
             <li className='p-4'><a href='###' className='link-light text-decoration-none p-2'>Quienes somos</a></li>
             <li className='p-4'><a href='###' className='link-light text-decoration-none p-2'>Nuestra historia</a></li>
-            <li className='p-4'><a href='###' className='link-light text-decoration-none p-2'>Carrito</a></li>
+            <CartWidget />
         </ul>
+        
     </>
     )
 }
