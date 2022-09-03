@@ -9,9 +9,11 @@ function App() {
       <header className='row bg-dark d-flex justify-content-around'>
         <NavBar />
       </header>
-      <ItemListContainer name='Finca El Boleado'>
-        <ItemCounter stock = '10'/>
-      </ItemListContainer >
+      <ItemCounter stock = '10'/>
+      <main>
+        <ItemListContainer />
+      </main>
+      
     </div>
   );
 }
