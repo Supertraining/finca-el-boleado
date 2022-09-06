@@ -1,10 +1,8 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState} from 'react'
-import { ItemList } from './ItemList';
+import React from "react";
+import { useState, useEffect} from "react";
+import { ItemDetail } from "./ItemDetail";
 
-
-function ItemListContainer () {
+export const ItemDetailContainer = () => {
 
     const productos = [{
         id : 1,
@@ -18,46 +16,47 @@ function ItemListContainer () {
         title : 'Bonarda',
         descripcion : 'Persistente en boca, alto en taninos', 
         precio : 1500,
-        picture: 'https://picsum.photos/201/200',
+        picture: 'https://picsum.photos/201/201',
     }, 
     {
         id : 3,
         title : 'Vermouth',
         descripcion : 'Especiado, con remanencia a hiervas serranas', 
         precio : 1100,
-        picture: 'https://picsum.photos/202/200',
+        picture: 'https://picsum.photos/202/202',
     }, 
     {
         id : 4,
         title : 'Viognier',
         descripcion : 'Citrico, refrescante y levemente ácido', 
         precio : 1300,
-        picture: 'https://picsum.photos/203/200',
+        picture: 'https://picsum.photos/203/203',
     } 
 
     ]
 
-    const [promesaProd, setPromesaProd] = useState([])
+    const [apiItem, setApiItem] = useState([]);
 
-    useEffect ( ()  =>{
-    const pedirProductos =  new Promise((resolve, reject) => {
+    useEffect(() => {
+        const pedirProductos =  new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(productos)
             }, 2000)
         })
     
-     pedirProductos.then (res => {
-        setPromesaProd(res)
-     }).catch(err => {
+        pedirProductos.then (res => 
+        res.find(el => el.id === 3)
+        )
+        .then(data => setApiItem(data))
+        .catch(err => {
         console.log('Error ' + err)
-     })
-    }, []);
+        })  
+    
+    }, [])
     
     return (
-        <div className='border rounded d-flex my-5'>
-            <ItemList estado = {promesaProd}/>
+        <div>
+        <ItemDetail item = {apiItem}/>
         </div>
     )
 }
-
-export default ItemListContainer

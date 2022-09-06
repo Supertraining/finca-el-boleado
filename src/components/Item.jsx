@@ -5,7 +5,7 @@ export const Item = (props) => {
 
     return (
     <>
-        <img src={props.img} alt="" />
+        <img src={props.img} alt={props.title} />
         <div className='border rounded p-3 my-2 h-100'>
         <h5>{props.titulo}</h5>
         <p><b>Características:</b>  {props.caracteristicas}</p>

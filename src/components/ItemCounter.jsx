@@ -28,7 +28,7 @@ function ItemCounter(props) {
     }
 
   return (
-    <div className='border w-25 m-5 p-3'>
+    <div className='border p-3'>
         <div className ='d-flex align-items-center m-3 border justify-content-between'>
             <button className='text-primary border-0 bg-transparent px-3  shadow' onClick={addItem}>+</button>
                 <div className='px-3'>{counter}</div>
