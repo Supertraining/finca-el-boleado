@@ -1,21 +1,34 @@
 import './App.css';
-import ItemCounter from './components/ItemCounter';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer';
+import { ItemListContainer } from './components/ItemListContainer';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 import { NavBar } from './components/NavBar';
 
 function App() {
   return (
     <div className='container'>
       
-      <header className='row bg-dark d-flex justify-content-around'>
-        <NavBar />
-      </header>
-      <main>
-        <ItemListContainer />
+      
+          <Router>
+              <NavBar />
+            <main>
+            <Routes>
+              <Route exact path='/' element={<ItemListContainer />} />
+              <Route exact path='/category/:id' element={<ItemListContainer />} />
+              <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+            </Routes>
+              
+              
+            </main>
+          </Router>
+ 
 
-        <ItemDetailContainer />
-      </main>
+      
+     
       
     </div>
   );
