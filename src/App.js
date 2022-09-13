@@ -1,6 +1,7 @@
 import './App.css';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
 import { ItemListContainer } from './components/ItemListContainer';
+import { Cart } from './components/Cart';
 import {
   BrowserRouter as Router,
   Routes,
@@ -20,9 +21,8 @@ function App() {
               <Route exact path='/' element={<ItemListContainer />} />
               <Route exact path='/category/:id' element={<ItemListContainer />} />
               <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+              <Route exact path='/cart' element={<Cart />} />
             </Routes>
-              
-              
             </main>
           </Router>
  

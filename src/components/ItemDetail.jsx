@@ -1,9 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 import ItemCounter from './ItemCounter';
+import { Link } from 'react-router-dom'
 
 export const ItemDetail = ({item})=> {
     
-    
+    const [irAlCarrito, setIrAlCarrito] = useState(false)
+
+    const onAdd = (quantityToAdd) =>{
+            setIrAlCarrito(true)
+    }
+     
+      
+
 return (
         <>
             <div className="border rounded p-3 m-2 d-flex flex-column w-25"> 
@@ -13,7 +22,10 @@ return (
                     <p><b>Características:</b>  {item.descripcion}</p>
                     <p><b>Valor:</b> ${item.precio}</p>
                 </div> 
-                <ItemCounter stock = '10'/>
+                {
+                    irAlCarrito ? <Link to='/cart'>Terminar compra</Link> : <ItemCounter stock = {10} initial = {1} onAdd={onAdd} />
+                }
+                
             </div>
 
     </>)
