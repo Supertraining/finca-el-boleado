@@ -8,23 +8,24 @@ import {
   Route
 } from "react-router-dom";
 import { NavBar } from './components/NavBar';
+import CartProvider from './Context/CartContext';
+
 
 function App() {
   return (
     <div className='container'>
       
-      
-          <Router>
-              <NavBar />
-            <main>
-            <Routes>
-              <Route exact path='/' element={<ItemListContainer />} />
-              <Route exact path='/category/:id' element={<ItemListContainer />} />
-              <Route exact path='/item/:id' element={<ItemDetailContainer />} />
-              <Route exact path='/cart' element={<Cart />} />
-            </Routes>
-            </main>
-          </Router>
+      <CartProvider>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route exact path='/' element={<ItemListContainer />} />
+            <Route exact path='/category/:id' element={<ItemListContainer />} />
+            <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+            <Route exact path='/cart' element={<Cart />} />
+          </Routes>
+        </Router>
+      </CartProvider>
  
 
       
