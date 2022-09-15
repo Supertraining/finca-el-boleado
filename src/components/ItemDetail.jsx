@@ -15,8 +15,8 @@ export const ItemDetail = ({item})=> {
             addItem(item, quantityToAdd) 
             setIrAlCarrito(true)
     }
-     
-      
+    
+    
 
 return (
         <>
