@@ -12,14 +12,14 @@ import dilPomelo from '../img/dillPomelo.jpg';
 import dilPepino from '../img/dillPepino.jpg';
 
 export const ItemDetailContainer = () => {
-
-
+    
     const productos = [{
         id : 1,
         title : 'Syrah',
         descripcion : 'Ligero en boca y refrescante', 
         precio : 1200,
         picture: cardSyrah, 
+        stock: 10 
     },
     {
         id : 2,
@@ -27,6 +27,7 @@ export const ItemDetailContainer = () => {
         descripcion : 'Persistente en boca, alto en taninos', 
         precio : 1500,
         picture: cardBonarda,
+        stock: 5
     }, 
     {
         id : 3,
@@ -34,6 +35,7 @@ export const ItemDetailContainer = () => {
         descripcion : 'Especiado, con remanencia a hiervas serranas', 
         precio : 1100,
         picture: cardVermouth,
+        stock: 7
     }, 
     {
         id : 4,
@@ -41,6 +43,7 @@ export const ItemDetailContainer = () => {
         descripcion : 'Citrico, refrescante y levemente ácido', 
         precio : 1300,
         picture: cardViognier,
+        stock: 12
     },
     {
         id : 5,
@@ -48,6 +51,7 @@ export const ItemDetailContainer = () => {
         descripcion : 'Especiado, profundo, refrescante', 
         precio : 1100,
         picture: dillClassic,
+        stock: 25
     },
     {
         id : 6,
@@ -55,6 +59,7 @@ export const ItemDetailContainer = () => {
         descripcion : 'Citrico, refrescante y especiado', 
         precio : 1500,
         picture: dilPomelo,
+        stock: 3
     }, 
     {
         id : 7,
@@ -62,6 +67,7 @@ export const ItemDetailContainer = () => {
         descripcion : 'Suave, liviando, muy refrescante', 
         precio : 1500,
         picture: dilPepino,
+        stock: 2
     } 
     ]
 
@@ -89,7 +95,7 @@ export const ItemDetailContainer = () => {
     
     return (
         <div>
-        <ItemDetail item = {apiItem}/>
+            <ItemDetail item = {apiItem} /> 
         </div>
     )
 }

@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../Context/CartContext'
+import CartItem from './CartItem';
+import { Link } from 'react-router-dom';
 
-export const Cart = () => {
-  return (
-    <div>Cart</div>
+const Cart = () => {
+
+const {cart, totalPrice, clear} = useContext(CartContext);
+
+  if(totalPrice() === 0) {
+    return (
+      <div className='text-center my-5'>
+        <p className='fs-1 my-4'>El carrito esta vacio!</p>
+        <Link to={'/'} className='text-decoration-none border rounded p-3 bg-primary text-white'>Ir a comprar</Link>
+      </div>
+    )
+  }
+  
+  return(
+   <div className=''>
+   {cart.map(product => <CartItem key={product.id} product= {product}/>)}
+    <p><b>Total:</b>$ {totalPrice()}</p>
+    <button onClick={clear}>Vaciar mi carrito</button>
+   </div>
   )
+  
 }
+export default Cart

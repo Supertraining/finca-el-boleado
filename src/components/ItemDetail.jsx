@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import ItemCounter from './ItemCounter';
 import { Link } from 'react-router-dom'
 import { useContext } from 'react';
@@ -8,16 +7,11 @@ import { CartContext } from '../Context/CartContext';
 export const ItemDetail = ({item})=> {
 
     const {addItem} = useContext(CartContext);
-    
-    const [irAlCarrito, setIrAlCarrito] = useState(false)
 
-    const onAdd = (quantityToAdd) =>{
-            addItem(item, quantityToAdd) 
-            setIrAlCarrito(true)
+    const onAdd = (quantity) =>{
+            addItem(item, quantity) 
     }
     
-    
-
 return (
         <>
             <div className="border rounded p-3 m-2 d-flex flex-column w-25"> 
@@ -27,12 +21,8 @@ return (
                     <p><b>Características:</b>  {item.descripcion}</p>
                     <p><b>Valor:</b> ${item.precio}</p>
                 </div> 
-                {
-                    irAlCarrito ? <Link to='/cart'>Terminar compra</Link> : <ItemCounter stock = {10} initial = {1} onAdd={onAdd} />
-                }
-                
+                <ItemCounter stock = {item.stock} initial = {1} onAdd={onAdd} />
+                <Link className='text-decoration-none border rounded p-1 my-1 text-center bg-dark' to='/cart'>Terminar compra</Link> 
             </div>
-
     </>)
-
             }

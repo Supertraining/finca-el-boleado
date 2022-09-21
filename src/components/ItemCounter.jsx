@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
 
-function ItemCounter({ initial, stock, onAdd }) {
+function ItemCounter({ initial, stock, onAdd}) {
 
     const [counter, setCounter] = useState(initial);
+
 
     const addItem = () => {
         setCounter(counter + 1)
