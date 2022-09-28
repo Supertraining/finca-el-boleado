@@ -4,7 +4,7 @@ import CartWidget from './CartWidget'
 import {Link, NavLink} from 'react-router-dom'
 
 
-export const NavBar = () => {
+const NavBar = () => {
     return (
     <>
         <header className='row bg-dark d-flex justify-content-around'>
@@ -23,3 +23,4 @@ export const NavBar = () => {
     )
 }
 
+export default NavBar

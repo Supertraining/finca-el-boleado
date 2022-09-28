@@ -17,9 +17,9 @@ function ItemCounter({ initial, stock, onAdd}) {
     return (
         <div className='border p-3'>
             <div className='d-flex align-items-center m-3 border justify-content-between'>
-                <button disabled={counter >= stock} className='text-primary border-0 bg-transparent px-3  shadow' onClick={addItem}>+</button>
-                <div className='px-3'>{counter}</div>
                 <button disabled={counter <= 1} className='text-primary border-0 bg-transparent px-3  shadow' onClick={removeItem}>-</button>
+                    <div className='px-3'>{counter}</div>
+                <button disabled={counter >= stock} className='text-primary border-0 bg-transparent px-3  shadow' onClick={addItem}>+</button>
             </div>
             <div className='d-flex justify-content-center'><div>Stock: {stock}</div></div>
             <div className='d-flex align-items-center m-3 border'>

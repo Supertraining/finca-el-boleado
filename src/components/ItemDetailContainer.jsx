@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect} from "react";
-import { ItemDetail } from "./ItemDetail";
+import  ItemDetail  from "./ItemDetail";
 import {useParams} from 'react-router-dom'
-import { doc, getDoc, getFirestore, snapshotEqual } from "firebase/firestore";
+import { doc, getDoc, getFirestore,  } from "firebase/firestore";
 import Loading from "./Loading";
 
-export const ItemDetailContainer = () => {
+const ItemDetailContainer = () => {
     
 
     const [apiItem, setApiItem] = useState([]);
@@ -21,7 +21,7 @@ export const ItemDetailContainer = () => {
             setLoading(false)
 
         })
-    }, [])
+    }, [id])
 
     return (
         <>
@@ -34,3 +34,6 @@ export const ItemDetailContainer = () => {
         </>
     )
 }
+
+
+export default ItemDetailContainer

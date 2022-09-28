@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-export const Item = (props) => {
-
+const Item = (props) => {
+  
     return (
       <>
         <Link to={`/item/${props.id}`}>        
@@ -17,3 +17,5 @@ export const Item = (props) => {
       </>
   )
 }
+
+export default Item
