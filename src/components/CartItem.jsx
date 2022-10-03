@@ -10,7 +10,7 @@ const CartItem = ({ product }) => {
     <>
     <div className="border rounded p-3 m-2 d-flex justify-content-between">
       <div className='m-2 text-center'>
-        <img style={{ width: '100px', height: '100px' }} src={product.picture} alt={product.titulo} />
+        <img style={{ width: '100px', height: '100px' }} className='rounded' src={product.picture} alt={product.titulo} />
         <p>{product.title}</p>
       </div>
       <div className='m-2'>

@@ -42,6 +42,7 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
     return (
         <>
             <form className='m-5 border shadow p-3 ' >
+                <p>Por favor, completa el formulario para hacer tu pedido.</p>
                 <div className="mb-3">
                     <label htmlFor='nombre' className="form-label">Nombre</label>
                     <input type="text" className="form-control" id="nombre" onInput={(e) => setNombre(e.target.value)} />
