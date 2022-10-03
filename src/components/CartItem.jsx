@@ -7,6 +7,7 @@ const CartItem = ({ product }) => {
   const { removeItem } = useContext(CartContext);
 
   return (
+    <>
     <div className="border rounded p-3 m-2 d-flex justify-content-between">
       <div className='m-2 text-center'>
         <img style={{ width: '100px', height: '100px' }} src={product.picture} alt={product.titulo} />
@@ -19,6 +20,7 @@ const CartItem = ({ product }) => {
       </div>
       <button className='bg-dark text-white rounded' onClick={() => { removeItem(product.id); sessionStorage.removeItem(product.id) }}>Eliminar</button>
     </div>
+    </>
   )
 }
 

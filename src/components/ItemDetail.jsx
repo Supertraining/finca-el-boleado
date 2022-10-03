@@ -6,12 +6,13 @@ import { CartContext } from '../Context/CartContext';
 
 
 const ItemDetail = ({ item }) => {
-    const { addItem } = useContext(CartContext);
+    const { addItem, cart } = useContext(CartContext);
 
     const onAdd = (quantity) => {
         addItem(item, quantity);
-
     }
+    
+
     return (
         <>
             <div className="border rounded p-3 m-2 d-flex justify-content-around align-items-center">
@@ -26,7 +27,7 @@ const ItemDetail = ({ item }) => {
                 </div>
             </div>
             <div className='border p-3 rounded'>
-                <ItemCounter stock={item.stock} initial={1} onAdd={onAdd} item={item} />
+                <ItemCounter stock={item.stock} initial={1} onAdd={onAdd} item={item} cart = {cart} />
                 <div className='d-flex justify-content-around'>
                     <Link className='text-decoration-none border rounded p-1 my-1 text-center bg-dark text-white' to='/cart'>Terminar compra</Link>
                     <Link className='text-decoration-none border rounded p-1 my-1 text-center bg-dark text-white' to='/'>Seguir comprando</Link>

@@ -6,10 +6,7 @@ import Form from './Form';
 
 const Cart = () => {
 
-  const { cart, totalPrice, clear, disableCart } = useContext(CartContext);
-
-
-
+  const { cart, totalPrice, clear, disableCart, sobreVenta } = useContext(CartContext);
 
   if (totalPrice() === 0) {
     return (
@@ -24,12 +21,12 @@ const Cart = () => {
     <>
       <div className='d-flex' >
         <div className={`w-50 ${disableCart}`}>
-          {cart.map(product => <CartItem key={product.id} product={product} />)}
+          {cart.map(product => <CartItem key={product.id} product={product} sobreVenta = {sobreVenta}/>)}
           <p className='fs-4'><b>Total:</b> $ {totalPrice()}</p>
           <button className='bg-dark text-white rounded' onClick={() => { clear() }}>Vaciar mi carrito</button>
         </div>
         <div className='w-50'>
-          <Form cart={cart} totalPrice={totalPrice} clear={clear} />
+          <Form cart={cart} totalPrice={totalPrice} clear={clear} sobreVenta = {sobreVenta} />
         </div>
       </div>
     </>

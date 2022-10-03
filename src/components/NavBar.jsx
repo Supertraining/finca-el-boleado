@@ -5,6 +5,8 @@ import { Link, NavLink } from 'react-router-dom'
 
 
 const NavBar = () => {
+
+
     return (
         <>
             <header className='row bg-dark d-flex justify-content-around'>

@@ -2,9 +2,8 @@ import { useState } from 'react'
 import { addDoc, collection, getFirestore, getDoc, doc, updateDoc } from 'firebase/firestore'
 import { useContext } from 'react'
 import { CartContext } from '../Context/CartContext'
-import Loading from './Loading'
 
-const Form = ({ cart, totalPrice, clear }) => {
+const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
 
     const { setDisableCart } = useContext(CartContext)
 
@@ -65,11 +64,21 @@ const Form = ({ cart, totalPrice, clear }) => {
                     <input type="email" className="form-control" id="email" onInput={(e) => setEmailConf(e.target.value)} />
                     <span>{email === emailConf ? '' : 'su mail no coincide'}</span>
                 </div>
-                {nombre && apellido && (email === emailConf) && telefono ?
-                    <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled') }} disabled={orderId}>Realizar compra!</button>
-                    : ''}
-                <div className={orderId ? 'border rounded w-100 my-2 p-2 text-center' : ''} > {orderId ? <><p>Tu ID de orden es: <b>{orderId}.</b></p><p>Gracias por tu compra!</p></> : ''}</div>
-                <div>{orderId ? <button className="btn btn-primary" onClick={() => { clear(); setDisableCart('') }}>Finalizar</button> : ''}</div>
+                <div className='d-flex'>
+                    {nombre && apellido && (email === emailConf) && email !== '' && emailConf !== '' && telefono ?
+                        <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled') }} disabled={orderId || sobreVenta}>
+                            Realizar compra!
+                        </button> : ''}
+
+                    {sobreVenta ? <>
+                        <div className='border rounded text-white p-2 bg-danger '>
+                            La cantidad que deseas comprar de uno o varios de los productos <b>supera el Stock en Deposito</b> por favor elimínalo y selecciona la cantidad disponible.
+                        </div></> : ''}
+                </div>
+                <>
+                    <div className={orderId ? 'border rounded w-100 my-2 p-2 text-center' : ''} > {orderId ? <><p>Tu ID de orden es: <b>{orderId}.</b></p><p>Gracias por tu compra!</p></> : ''}</div>
+                    <div>{orderId ? <button className="btn btn-primary" onClick={() => { clear(); setDisableCart('') }}>Finalizar</button> : ''}</div>
+                </>
             </form>
         </>
     )

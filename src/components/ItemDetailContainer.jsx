@@ -23,6 +23,8 @@ const ItemDetailContainer = () => {
         })
     }, [id])
 
+    
+
     return (
         <>
 
