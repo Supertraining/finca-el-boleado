@@ -6,27 +6,34 @@ import Form from './Form';
 
 const Cart = () => {
 
-const {cart, totalPrice, clear} = useContext(CartContext);
+  const { cart, totalPrice, clear, disableCart } = useContext(CartContext);
 
-  if(totalPrice() === 0) {
+
+
+
+  if (totalPrice() === 0) {
     return (
       <div className='text-center my-5'>
-        <p className='fs-1 my-4'>El carrito esta vacio!</p>
-        <Link to={'/'} className='text-decoration-none border rounded p-3 bg-primary text-white'>Ir a comprar</Link>
+        <p className='fs-1 my-4'>El carrito esta vacío!</p>
+        <Link to={'/'} className='text-decoration-none border rounded p-3 bg-dark text-white'>Ir a comprar</Link>
       </div>
     )
   }
-  
-  return(
+
+  return (
     <>
-    <div className=''>
-    {cart.map(product => <CartItem key={product.id} product= {product}/>)}
-      <p className='fs-1'><b>Total:</b>$ {totalPrice()}</p>
-      <button onClick={clear}>Vaciar mi carrito</button>
-    </div>
-    <Form cart = {cart} totalPrice = {totalPrice} clear = {clear}/>
-   </>
+      <div className='d-flex' >
+        <div className={`w-50 ${disableCart}`}>
+          {cart.map(product => <CartItem key={product.id} product={product} />)}
+          <p className='fs-4'><b>Total:</b> $ {totalPrice()}</p>
+          <button className='bg-dark text-white rounded' onClick={() => { clear() }}>Vaciar mi carrito</button>
+        </div>
+        <div className='w-50'>
+          <Form cart={cart} totalPrice={totalPrice} clear={clear} />
+        </div>
+      </div>
+    </>
   )
-  
+
 }
 export default Cart

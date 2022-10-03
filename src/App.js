@@ -9,6 +9,7 @@ import {
 import NavBar from './components/NavBar';
 import CartProvider from './Context/CartContext';
 import Cart from './components/Cart';
+import Footer from './components/Footer'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route exact path='/item/:id' element={<ItemDetailContainer />} />
             <Route exact path='/cart' element={<Cart />} />
           </Routes>
+          <Footer />
         </Router>
       </CartProvider>
  

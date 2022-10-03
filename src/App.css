@@ -1,12 +1,211 @@
-.link-light:hover {
-  box-shadow: inset 2px 2px 5px salmon, inset -2px -2px 5px salmon !important;
-  transition: 0.5s;
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300&family=Roboto+Slab&display=swap');
+
+header {
+  min-height: 200px;
+}
+header ul div {
+  min-width: 200px;
+  font-family: 'Inria Serif', serif;
+  font-weight: 600;
+}
+header ul div:hover {
+  cursor: pointer;
+}
+header ul div li {
+  opacity: 0;
+  transition: 1s;
+}
+header ul div:hover li {
+  opacity: 1;
+}
+header ul div :nth-child(1) a {
+  opacity: 0.3;
+  transition: 1s;
+}
+header ul div :nth-child(1) a:hover {
+  box-shadow: 3px 3px 0px white, -0.3px -0.3px 0px white ;
+  filter: drop-shadow(2px 2px 4px white);
+  opacity: 1;
+}
+
+header ul div :nth-child(1) a:active {
+  box-shadow: 1px 1px 0px white;
+  transition: 0.25s;
+}
+header ul div :nth-child(2) a {
+  opacity: 0.3;
+  transition: 1s;
+}
+header ul div :nth-child(2) a:hover {
+  box-shadow: 3px 3px 0px white, -0.3px -0.3px 0px white ;
+  filter: drop-shadow(2px 2px 4px white);
+  opacity: 1;
+}
+header ul div :nth-child(2) a:active {
+  box-shadow: 1px 1px 0px white;
+  transition: 0.25s;
 }
 .Div__cart {
   width: fit-content;
   height: fit-content;
   padding: 12px;
 }
-.cart {
-  padding: 8px;
+.Div__cart:hover {
+  margin-top: 15px;
+  box-shadow: 3px 3px 0px white, -0.3px -0.3px 0px white ;
+  filter: drop-shadow(2px 2px 4px white);
+  transition: 1s;
+}
+.Div__cart:active {
+  box-shadow: 1px 1px 0px white;
+  transition: 0.25s;
+}
+h5 {
+  font-size: 2vw;
+  font-family: 'Roboto Slab', serif;
+}
+@media (max-width: 1200px) {
+  h5 {
+    font-size: 2.5vw;;
+  }
+}
+@media (max-width: 940px) {
+  h5 {
+    font-size: 3vw;;
+  }
+}
+@media (max-width: 700px) {
+  h5 {
+    font-size: 3.2vw;;
+  }
+}
+@media (max-width: 500px) {
+  h5 {
+    font-size: 4vw;;
+  }
+}
+p {
+  font-size: 1.2vw;
+  font-family: 'Roboto Slab', serif;
+
+}
+@media (max-width: 1200px) {
+  p {
+    font-size: 1.4vw;;
+  }
+}
+@media (max-width: 940px) {
+  p {
+    font-size: 1.6vw;;
+  }
+}
+@media (max-width: 700px) {
+  p {
+    font-size: 2.1vw;;
+  }
+}
+@media (max-width: 500px) {
+  p {
+    font-size: 3.2vw;;
+  }
+}
+a {
+  font-family: 'Inria Serif', serif;
+}
+button {
+  font-family: 'Roboto Slab', serif;
+}
+label {
+  font-family: 'Roboto Slab', serif;
+}
+input {
+  font-family: 'Inria Serif', serif;
+  font-weight: 600 !important;
+}
+.cards {
+  max-width: 250px;
+} 
+.cardsDivImg {
+  max-width: 216px;
+  max-height: 220px;
+}
+.cardsImg {
+  width: 100%;
+  height: 220px;
+}
+
+.addToCart {
+  box-shadow: 5px 5px 5px darkgray;
+}
+.addToCart:active {
+  box-shadow: 2px 2px 5px darkgray;
+  translate: (3px, 3px);
+}
+.disabled {
+  opacity: 0.5; 
+  pointer-events: none;
+}
+
+footer .footer__NavBarSocial a {
+  border: 5px solid silver;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+footer .footer__NavBarSocial a img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -webkit-animation-name: lightf;
+          animation-name: lightf;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  border-radius: 50%;
+}
+footer .footer__NavBarSocial a .face {
+  background-color: #3b5998;
+}
+footer .footer__NavBarSocial a .face:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+footer .footer__NavBarSocial a .insta {
+  background-color: #bc2a8d;
+}
+footer .footer__NavBarSocial a .insta:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+footer .footer__NavBarSocial a .wapp {
+  background-color: #25d366;
+}
+footer .footer__NavBarSocial a .wapp:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+footer .footer__NavBarSocial a .mail {
+  background-color: #b2936d;
+}
+footer .footer__NavBarSocial a .mail:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+@-webkit-keyframes lightf {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lightf {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
