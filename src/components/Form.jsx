@@ -46,6 +46,7 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
 			},
 			body: JSON.stringify({
                 orderId : orderId,
+                date: new Date(),
 				nombre: nombre,
 				apellido: apellido,
                 email: email,
@@ -86,7 +87,7 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
                 </div>
                 <div className='d-flex'>
                     {nombre && apellido && (email === emailConf) && email !== '' && emailConf !== '' && telefono ?
-                        <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled'); getData() }} disabled={orderId || sobreVenta}>
+                        <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled')}} disabled={orderId || sobreVenta}>
                             Realizar compra!
                         </button> : ''}
 
@@ -97,7 +98,7 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
                 </div>
                 <>
                     <div className={orderId ? 'border rounded w-100 my-2 p-2 text-center' : ''} > {orderId ? <><p>Tu ID de orden es: <b>{orderId}.</b></p><p>Gracias por tu compra!</p></> : ''}</div>
-                    <div>{orderId ? <button className="btn btn-primary" onClick={() => { clear(); setDisableCart('') }}>Finalizar</button> : ''}</div>
+                    <div>{orderId ? <button className="btn btn-primary" onClick={() => { clear(); getData(); setDisableCart('') }}>Finalizar</button> : ''}</div>
                 </>
             </form>
         </>
