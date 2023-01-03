@@ -37,6 +37,25 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
             return '';
         })
     }
+    const getData = () => {
+		fetch('https://formsubmit.co/ajax/maranga_matias@hotmail.com', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+			},
+			body: JSON.stringify({
+                orderId : orderId,
+				nombre: nombre,
+				apellido: apellido,
+                email: email,
+                telefono: telefono,
+			}),
+		})
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+			.catch((error) => console.log(error));
+	};
 
 
     return (
@@ -67,7 +86,7 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
                 </div>
                 <div className='d-flex'>
                     {nombre && apellido && (email === emailConf) && email !== '' && emailConf !== '' && telefono ?
-                        <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled') }} disabled={orderId || sobreVenta}>
+                        <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled'); getData() }} disabled={orderId || sobreVenta}>
                             Realizar compra!
                         </button> : ''}
 
