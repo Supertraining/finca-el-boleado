@@ -8,40 +8,40 @@ header ul div {
   font-family: 'Inria Serif', serif;
   font-weight: 600;
 }
-header ul div:hover {
+header div div:hover {
   cursor: pointer;
 }
-header ul div li {
-  opacity: 0;
+header div div div {
+  opacity: 0.7;
   transition: 1s;
 }
-header ul div:hover li {
+header div div:hover li {
   opacity: 1;
 }
-header ul div :nth-child(1) a {
+header div div :nth-child(1) a {
   opacity: 0.3;
   transition: 1s;
 }
-header ul div :nth-child(1) a:hover {
+header div div :nth-child(1) a:hover {
   box-shadow: 3px 3px 0px white, -0.3px -0.3px 0px white ;
   filter: drop-shadow(2px 2px 4px white);
   opacity: 1;
 }
 
-header ul div :nth-child(1) a:active {
+header div div :nth-child(1) a:active {
   box-shadow: 1px 1px 0px white;
   transition: 0.25s;
 }
-header ul div :nth-child(2) a {
+header div div :nth-child(2) a {
   opacity: 0.3;
   transition: 1s;
 }
-header ul div :nth-child(2) a:hover {
+header div div :nth-child(2) a:hover {
   box-shadow: 3px 3px 0px white, -0.3px -0.3px 0px white ;
   filter: drop-shadow(2px 2px 4px white);
   opacity: 1;
 }
-header ul div :nth-child(2) a:active {
+header div div :nth-child(2) a:active {
   box-shadow: 1px 1px 0px white;
   transition: 0.25s;
 }

@@ -11,7 +11,7 @@ const Item = (props) => {
             <img src={props.img} alt={props.title} className='rounded cardsImg' />
           </div>
         </Link>
-        <div className='border rounded p-3 my-2 h-100'>
+        <div className='border rounded p-3 my-2 h-100 w-100'>
           <h5>{props.titulo}</h5>
           <p>{props.tipo}</p>
           <p><b>Valor:</b> ${props.valor}</p>

@@ -29,9 +29,9 @@ const footer = () => {
                     allowFullScreen
                     loading='lazy'>
                 </iframe>
-                <p className='text-white text-center'>Direccion en formato texto</p>
+                <p className='text-white text-center'>km 153, Ruta Provincial 14, Travesía, Córdoba</p>
             </div>
-            <div className='col-md-1 col-sm-3 col-3 footer__NavBarSocial d-flex flex-column align-items-center mt-2'>
+            <div className='col-md-1 col-sm-5 col-5 footer__NavBarSocial d-flex flex-md-column justify-content-center align-items-md-center mt-2'>
                 <a href='https://www.facebook.com/fincaelboleado/'><img className='face'
                     src={facebook}
                     alt='facebook' /></a>

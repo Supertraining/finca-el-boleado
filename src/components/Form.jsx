@@ -7,18 +7,21 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
 
     const { setDisableCart } = useContext(CartContext)
 
-    const [nombre, setNombre] = useState('')
-    const [apellido, setApellido] = useState('')
-    const [email, setEmail] = useState('')
-    const [emailConf, setEmailConf] = useState('')
-    const [telefono, setTelefono] = useState('')
     const [orderId, setOrderId] = useState('')
 
+    const [credentials, setCredentials] = useState({})
+
+    const handleChange = (e) => {
+        setCredentials({
+            ...credentials, [e.target.name]: e.target.value 
+        })
+    }
+  
     const sendOrder = (e) => {
         e.preventDefault();
 
         const order = {
-            buyer: { name: nombre, apellido: apellido, email: email, phone: telefono, date: new Date() },
+            buyer: { name: credentials?.nombre, apellido: credentials?.apellido, email: credentials?.email, phone: credentials?.telefono, date: new Date() },
             items: cart.map((el) => ({
                 id: el.id, title: el.title, price: el.precio, quantity: el.quantity
             })),
@@ -47,10 +50,10 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
 			body: JSON.stringify({
                 orderId : orderId,
                 date: new Date(),
-				nombre: nombre,
-				apellido: apellido,
-                email: email,
-                telefono: telefono,
+				nombre: credentials?.nombre,
+				apellido: credentials?.apellido,
+                email: credentials?.email,
+                telefono: credentials?.telefono,
 			}),
 		})
 			.then((response) => response.json())
@@ -65,28 +68,27 @@ const Form = ({ cart, totalPrice, clear, sobreVenta }) => {
                 <p>Por favor, completa el formulario para hacer tu pedido.</p>
                 <div className="mb-3">
                     <label htmlFor='nombre' className="form-label">Nombre</label>
-                    <input type="text" className="form-control" id="nombre" onInput={(e) => setNombre(e.target.value)} />
+                    <input type="text" className="form-control" id="nombre" name='nombre' onChange={handleChange} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor='apellido' className="form-label">Apellido</label>
-                    <input type="text" className="form-control" id="apellido" onInput={(e) => setApellido(e.target.value)} />
+                    <input type="text" className="form-control" id="apellido" name='apellido' onChange={handleChange} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor='telefono' className="form-label">Teléfono</label>
-                    <input type="tel" className="form-control" id="telefono" onInput={(e) => isNaN(e.target.value) ? setTelefono(null) : setTelefono(e.target.value)} />
-                    <span><b>{telefono === null ? 'Ingrese un numero por favor' : ''}</b></span>
+                    <input type="tel" className="form-control" id="telefono" name='telefono' onChange={handleChange} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor='email' className="form-label">E-Mail</label>
-                    <input type="email" className="form-control" id="email" onInput={(e) => setEmail(e.target.value)} />
+                    <input type="email" className="form-control" id="email" name='email' onChange={handleChange} required/>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor='email' className="form-label">Confirme su e-mail por favor</label>
-                    <input type="email" className="form-control" id="email" onInput={(e) => setEmailConf(e.target.value)} />
-                    <span>{email === emailConf ? '' : 'su mail no coincide'}</span>
+                    <label htmlFor='emailConf' className="form-label">Confirme su e-mail por favor</label>
+                    <input type="email" className="form-control" id="emailConf" name='emailConf' onChange={handleChange} required/>
+                   
                 </div>
                 <div className='d-flex'>
-                    {nombre && apellido && (email === emailConf) && email !== '' && emailConf !== '' && telefono ?
+                    {credentials?.emailConf?
                         <button type="submit" className="btn btn-primary" onClick={(e) => { sendOrder(e); setDisableCart('disabled')}} disabled={orderId || sobreVenta}>
                             Realizar compra!
                         </button> : ''}
