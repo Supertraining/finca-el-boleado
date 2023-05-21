@@ -9,19 +9,33 @@ const NavBar = () => {
 
     return (
         <>
-            <header className='row d-flex justify-content-around align-items-center bg-dark'>
-                <div className='w-auto d-flex align-items-center'>
-                    <Link to='/'>
+            <header>
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <Link class="navbar-brand" to={'/'}>
                         <img src={logo} alt='logo' className='h-75 my-1' />
                     </Link>
-                </div>
-                <div className='nav d-flex w-50'>
-                    <div className='text-white p-4 text-center d-flex justify-content-around align-items-center w-100'>
-                        <div className='p-3'><NavLink to='category/vino' className='link-light text-decoration-none p-3 rounded'>Vinos</NavLink></div>
-                        <div className='p-3'><NavLink to='category/aperitivo' className='link-light text-decoration-none p-3 rounded'>Aperitivos</NavLink></div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
+
+                        <div class="navbar-nav align-items-center">
+
+                            <div className='p-3'>
+                                <NavLink to='category/vino' className='text-white text-decoration-none p-3 rounded'>Vinos</NavLink>
+                            </div>
+
+                            <div className='p-3'>
+                                <NavLink to='category/aperitivo' className='text-white text-decoration-none p-3 rounded'>Aperitivos</NavLink>
+                            </div>
+
+                            <CartWidget />
+
+                        </div>
                     </div>
-                </div>
-                <CartWidget />
+                </nav>
+
             </header>
         </>
     )
