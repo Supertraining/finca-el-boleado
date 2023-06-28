@@ -34,7 +34,7 @@ const ItemListContainer = () => {
     }, [id]);
 
     return (
-        <div className='border rounded d-flex flex-wrap justify-content-evenly my-5'>
+        <div className='border rounded d-flex flex-wrap justify-content-center my-5'>
             {loading ? <Loading /> : <ItemList productos={productos} />}
         </div>
     )
