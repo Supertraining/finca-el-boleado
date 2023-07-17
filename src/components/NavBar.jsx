@@ -11,7 +11,7 @@ const NavBar = () => {
         <>
             <header>
 
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav class="p-2 navbar navbar-expand-lg navbar-dark bg-dark">
                     <Link class="navbar-brand" to={'/'}>
                         <img src={logo} alt='logo' className='h-75 my-1' />
                     </Link>
