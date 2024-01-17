@@ -10,8 +10,8 @@ import Loading from './Loading';
 const ItemListContainer = () => {
 
     const { id } = useParams();
-    const [productos, setProductos] = useState({});
-    const [loading, setLoading] = useState(true)
+    const [ productos, setProductos ] = useState({});
+    const [ loading, setLoading ] = useState(true)
 
     useEffect(() => {
         const db = getFirestore();
@@ -31,11 +31,11 @@ const ItemListContainer = () => {
                 setLoading(false)
             })
         }
-    }, [id]);
+    }, [ id ]);
 
     return (
         <div className='border rounded d-flex flex-wrap justify-content-center my-5'>
-            {loading ? <Loading /> : <ItemList productos={productos} />}
+            { loading ? <Loading /> : <ItemList productos={ productos } /> }
         </div>
     )
 }

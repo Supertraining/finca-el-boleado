@@ -28,10 +28,6 @@ function App() {
           <Footer />
         </Router>
       </CartProvider>
- 
-
-      
-     
       
     </div>
   );

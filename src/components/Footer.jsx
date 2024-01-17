@@ -1,9 +1,8 @@
-import React from 'react'
-import logo from '../img/Logo_Boleado2.jpg'
-import facebook from '../img/icons/facebook.png'
-import instagram from '../img/icons/instagram.png'
-import whatsapp from '../img/icons/whatsapp.png'
-import email from '../img/icons/email.png'
+import logo from '../assets/img/Logo_Boleado2.jpg'
+import facebook from '../assets/img/icons/facebook.png'
+import instagram from '../assets/img/icons/instagram.png'
+import whatsapp from '../assets/img/icons/whatsapp.png'
+import email from '../assets/img/icons/email.png'
 
 
 const footer = () => {
