@@ -1,11 +1,11 @@
-import React from 'react';
 import ItemCounter from './ItemCounter';
 import { Link } from 'react-router-dom'
 import { useContext } from 'react';
 import { CartContext } from '../Context/CartContext';
-
+import PropTypes from 'prop-types'
 
 const ItemDetail = ({ item }) => {
+    
     const { addItem, cart } = useContext(CartContext);
 
     const onAdd = (quantity) => {
@@ -35,5 +35,7 @@ const ItemDetail = ({ item }) => {
             </div>
         </>)
 }
-
+ItemDetail.propTypes = {
+    item: PropTypes.object.isRequired
+}
 export default ItemDetail

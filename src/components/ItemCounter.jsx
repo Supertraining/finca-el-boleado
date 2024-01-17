@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
+import PropTypes from 'prop-types'
 
 
 function ItemCounter({ initial, stock, onAdd }) {
@@ -28,6 +29,10 @@ function ItemCounter({ initial, stock, onAdd }) {
         </div>
     )
 }
-
+ItemCounter.propTypes = {
+    initial: PropTypes.number.isRequired,
+    stock: PropTypes.number.isRequired,
+    onAdd: PropTypes.func.isRequired
+}
 export default ItemCounter
 

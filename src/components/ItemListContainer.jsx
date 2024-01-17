@@ -1,4 +1,3 @@
-import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -12,7 +11,7 @@ const ItemListContainer = () => {
     const { id } = useParams();
     const [ productos, setProductos ] = useState({});
     const [ loading, setLoading ] = useState(true)
-
+    
     useEffect(() => {
         const db = getFirestore();
         const itemsCollection = collection(db, 'items');
@@ -32,7 +31,7 @@ const ItemListContainer = () => {
             })
         }
     }, [ id ]);
-
+   
     return (
         <div className='border rounded d-flex flex-wrap justify-content-center my-5'>
             { loading ? <Loading /> : <ItemList productos={ productos } /> }
